@@ -57,11 +57,13 @@ def require_jwt(function):
     return decorated_function
 
 
+# index
 @APP.route('/', methods=['POST', 'GET'])
 def health():
     return jsonify("Healthy")
 
 
+# auth
 @APP.route('/auth', methods=['POST'])
 def auth():
     """
@@ -83,6 +85,7 @@ def auth():
     return jsonify(token=_get_jwt(user_data).decode('utf-8'))
 
 
+# contents
 @APP.route('/contents', methods=['GET'])
 def decode_jwt():
     """
