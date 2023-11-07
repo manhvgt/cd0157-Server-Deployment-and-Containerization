@@ -1,0 +1,8 @@
+ELB endpoint URL:
+a0fe82b456ad549b6b82dda9325b56a2-644151902.us-east-2.elb.amazonaws.com
+
+
+Ref:
+cd0157-Deployment % kubectl get services simple-jwt-api -o wide
+NAME             TYPE           CLUSTER-IP      EXTERNAL-IP                                                              PORT(S)        AGE   SELECTOR
+simple-jwt-api   LoadBalancer   10.100.215.42   a0fe82b456ad549b6b82dda9325b56a2-644151902.us-east-2.elb.amazonaws.com   80:31733/TCP   8h    app=simple-jwt-api

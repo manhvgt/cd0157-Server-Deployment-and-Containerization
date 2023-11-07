@@ -1,0 +1,42 @@
+docker build -t cd0157 .
+docker run --name cd0157cont --env-file=.env_file -p 80:8080 cd0157
+
+https://573786860011.signin.aws.amazon.com/console
+cd0157admin
+8aQ6{6J|
+
+Access key
+AKIAYLGC4VHV6RGBPYXC
+
+Secret access key
+XCRTkOujnY/w0CM5xqGnTGQgp6IHgAl5y8Us5XMD
+
+github access token
+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
+
+
+
+
+aws configure set region us-east-2
+eksctl create cluster --name simple-jwt-api --nodes=2 --version=1.28 --instance-types=t2.medium --region=us-east-2
+
+
+aws ssm put-parameter --name JWT_SECRET --overwrite --value "myjwtsecret" --type SecureString --region us-east-2
+
+
+
+aws eks update-kubeconfig --name simple-jwt-api --region us-east-1
+
+
+eksctl delete cluster cd0157-eks-cluster --region=us-east-2
+
+aws iam put-role-policy --role-name UdacityFlaskDeployCBKubectlRole --policy-name eks-describe --policy-document file://iam-role-policy.json
+
+
+
+kubectl patch configmap/aws-auth -n kube-system --patch "$(cat /Users/manhvt4/workspace/cd0157-Deployment/aws-auth-patch.yml)"
+
+
+
+
+
